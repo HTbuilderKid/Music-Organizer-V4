@@ -165,4 +165,16 @@ public class MusicOrganizer
         }
         return valid;
     }
+    
+    public void removeMatchingTitle(String searchString)
+    {
+        for(int i = trackList.size() - 1; i >= 0; i--) {
+            if(trackList.get(i).getTitle().contains(searchString)) {
+                System.out.println("Removing: " + trackList.get(i).getTitle());
+                trackList.remove(i);
+            }
+        }
+
+    }
+
 }
