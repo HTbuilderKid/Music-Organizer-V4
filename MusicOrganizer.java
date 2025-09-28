@@ -33,6 +33,15 @@ public class MusicOrganizer
         System.out.println();
     }
     
+    public void rateTrack(int index, int rating)
+    {
+        if(validIndex(index)) {
+            Track track = trackList.get(index);
+            track.setNewRating(rating);
+            System.out.println("Rated: " + track.getTitle() + " as " + rating + "/5");
+        }
+    }
+    
     /**
      * Add a track file to the collection.
      * @param filename The file name of the track to be added.
@@ -115,6 +124,7 @@ public class MusicOrganizer
     public void playTrack(int index)
     {
         if(validIndex(index)) {
+            player.stop();
             Track track = trackList.get(index);
             track.incrementPlayCount();
             player.startPlaying(track.getFilename());

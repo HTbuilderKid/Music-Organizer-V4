@@ -14,6 +14,7 @@ public class Track
     // Where the track is stored.
     private String filename;
     private int playCount;
+    private int rating;
     
     /**
      * Constructor for objects of class Track.
@@ -25,6 +26,7 @@ public class Track
     {
         setDetails(artist, title, filename);
         playCount = 0;
+        rating = 0;
     }
     
     /**
@@ -37,6 +39,7 @@ public class Track
     {
         setDetails("unknown", "unknown", filename);
         playCount = 0;
+        rating = 0;
     }
     
     public void incrementPlayCount()
@@ -47,6 +50,20 @@ public class Track
     public void resetPlayCount()
     {
         playCount = 0;
+    }
+    
+    public int getRating()
+    {
+        return rating;
+    }
+    
+    public void setNewRating(int newRating)
+    {
+        if(newRating >= 1 && newRating <= 5) {
+            rating =  newRating;
+        } else {
+            System.out.println("Rating must be between 1 and 5.");
+        }
     }
     
     /**
@@ -82,7 +99,7 @@ public class Track
      */
     public String getDetails()
     {
-        return artist + ": " + title + " (file: " + filename + ")";
+        return artist + ": " + title + " (file: " + filename + ") - Played " + playCount + " times - Rating: " + (rating == 0 ? "Unrated" : rating + "/5");
     }
     
     /**
