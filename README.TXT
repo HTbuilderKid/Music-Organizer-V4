@@ -38,6 +38,30 @@ public int sum(int a, int b) {
     return total;
 }
 
+37. 
+public boolean isPrime(int n)
+{
+    if(n < 2) {
+        return false; 
+    }
+    int divisor = 2;
+    while(divisor < n) {
+        if(n % divisor == 0) {
+            return false; 
+        }
+        divisor++;
+    }
+    return true; 
+}
+
+
+
+
+
+
+
+
+
 
 
 
