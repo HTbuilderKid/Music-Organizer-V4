@@ -116,6 +116,7 @@ public class MusicOrganizer
     {
         if(validIndex(index)) {
             Track track = trackList.get(index);
+            track.incrementPlayCount();
             player.startPlaying(track.getFilename());
             System.out.println("Now playing: " + track.getArtist() + " - " + track.getTitle());
         }
